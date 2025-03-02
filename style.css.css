@@ -1,0 +1,258 @@
+/* Import Modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}
+
+/* Hero Section with Background Image */
+.hero {
+    background: url('img/hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 120px 20px;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    position: relative;
+}
+
+/* Add a slight overlay for better text visibility */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Ensure text stays above overlay */
+.hero h1, .hero p {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* About Me Section with Image */
+#about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    padding: 50px;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 10px;
+    text-align: left;
+    color: white;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    gap: 20px;
+}
+
+/* Profile Image */
+.about-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
+/* Project Carousel */
+.carousel {
+    position: relative;
+    width: 60%;
+    height: 300px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.project {
+    min-width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Full-screen effect (hidden by default) */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Show fullscreen image when active */
+.fullscreen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    background: white;
+    color: black;
+}
+
+
+/* Navigation Buttons - Adjusted */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: white;
+    color: black;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .carousel {
+        width: 90%;  /* Adjust for mobile */
+        height: 250px;
+    }
+
+    .project {
+        max-height: 200px;
+    }
+}
+
+
+/* Ensure Carousel Buttons Stay Clickable */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 10;  /* ✅ Ensures buttons are above everything */
+}
+
+.prev:hover, .next:hover {
+    background: white;
+    color: black;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+.prev:hover, .next:hover {
+    background: white;
+    color: black;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Spotlight */
+#spotlight {
+    background: #222;
+    padding: 50px;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+.spotlight-img {
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+}
+
+#spotlight h3 {
+    font-size: 2em;
+    color: #ffcc00;
+}
